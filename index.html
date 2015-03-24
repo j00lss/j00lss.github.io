@@ -79,7 +79,7 @@ JOB.tracking = {
   hasStartedScrolling: false
 }
 
-document.getElementById('Info').onscroll(function (argument) {
+document.getElementById('Info').onscroll = function (e) {
   JOB.log('scrolleeen');
 
   if (!JOB.tracking.hasStartedScrolling) {
@@ -88,7 +88,7 @@ document.getElementById('Info').onscroll(function (argument) {
     JOB.tracking.hasStartedScrolling = true;
   }
 
-});
+};
 
 </script>
 
