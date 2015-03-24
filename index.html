@@ -12,7 +12,7 @@ textarea {
     }
 </style>
 <body>
-<textarea>
+<textarea id="Info">
 
                                    __ _____ _____ 
                                 __|  |     | __  |
@@ -64,6 +64,31 @@ textarea {
 
   ga('create', 'UA-61145533-1', 'auto');
   ga('send', 'pageview');
+</script>
+
+<script>
+var JOB = JOB || {};
+
+JOB.log = function (msg) {
+  if (window.console) {
+    console.log(msg);
+  }
+};
+
+JOB.tracking = {
+  hasStartedScrolling: false
+}
+
+document.getElementById('Info').onscroll(function (argument) {
+  JOB.log('scrolleeen');
+
+  if (!JOB.tracking.hasStartedScrolling) {
+    ga('send', 'event', 'Page Interaction', 'Scrolling infobox');
+
+    JOB.tracking.hasStartedScrolling = true;
+  }
+
+});
 
 </script>
 
