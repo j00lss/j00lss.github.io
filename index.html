@@ -90,6 +90,11 @@ document.getElementById('Info').onscroll = function (e) {
 
 };
 
+document.getElementById('Info').onclick = function (e) {
+  JOB.log('clickiin');
+  ga('send', 'event', 'Page Interaction', 'Clicking infobox');
+};
+
 </script>
 
 </body>
