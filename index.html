@@ -83,7 +83,16 @@ document.getElementById('Info').onscroll = function (e) {
   JOB.log('scrolleeen');
 
   if (!JOB.tracking.hasStartedScrolling) {
-    ga('send', 'event', 'Page Interaction', 'Scrolling infobox');
+    ga('send', 'event', 'Page Interaction', 'scroll', 'infobox');
+    ga('send', {
+      'hitType': 'event',         
+      'eventCategory': 'Page Interaction', 
+      'eventAction': 'scroll',     
+      'eventLabel': 'infobox',
+      'hitCallback' : function () {
+        JOB.log("scroll Event received");
+      }
+    });
 
     JOB.tracking.hasStartedScrolling = true;
   }
@@ -92,7 +101,16 @@ document.getElementById('Info').onscroll = function (e) {
 
 document.getElementById('Info').onclick = function (e) {
   JOB.log('clickiin');
-  ga('send', 'event', 'Page Interaction', 'Clicking infobox');
+  //ga('send', 'event', 'Page Interaction', 'click', 'infobox');
+  ga('send', {
+    'hitType': 'event',         
+    'eventCategory': 'Page Interaction', 
+    'eventAction': 'click',     
+    'eventLabel': 'infobox',
+    'hitCallback' : function () {
+      JOB.log("click Event received");
+    }
+  });
 };
 
 </script>
